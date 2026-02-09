@@ -10,9 +10,7 @@ const nextConfig: NextConfig = {
   },
   serverExternalPackages: [
     "@ffmpeg-installer/ffmpeg",
-    "@ffmpeg-installer/win32-x64",
     "@ffprobe-installer/ffprobe",
-    "@ffprobe-installer/win32-x64",
     "fluent-ffmpeg",
   ],
 };
