@@ -60,7 +60,10 @@ export async function extractVideoMetadata(
       const durationSec = parseFloat(String(metadata.format.duration || 0));
       const width = videoStream.width || 0;
       const height = videoStream.height || 0;
-      const fps = eval(videoStream.r_frame_rate || "0") || 0; // e.g., "30/1" -> 30
+      // Parse frame rate like "30/1" to 30
+      const fpsString = videoStream.r_frame_rate || "0/1";
+      const [num, denom] = fpsString.split("/").map(Number);
+      const fps = denom && denom !== 0 ? num / denom : 0;
       const codec = videoStream.codec_name || "unknown";
 
       console.log("Extracted metadata:", {
