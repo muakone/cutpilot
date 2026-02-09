@@ -193,24 +193,41 @@ export async function applyEffect(
         case "punch-in":
           // Simple zoom effect without complex expressions
           const zoomStrength = 1 + strength / 100;
-          // Just scale the video for the effect duration (simpler approach)
-          videoFilter = `scale=iw*${zoomStrength}:ih*${zoomStrength},setsar=1,crop=iw/${zoomStrength}:ih/${zoomStrength}`;
+          // Apply effect only during the specified time range
+          if (startSec > 0 || endSec > 0) {
+            videoFilter = `scale=iw*${zoomStrength}:ih*${zoomStrength},setsar=1,crop=iw/${zoomStrength}:ih/${zoomStrength}:enable='between(t,${startSec},${actualEnd})'`;
+          } else {
+            videoFilter = `scale=iw*${zoomStrength}:ih*${zoomStrength},setsar=1,crop=iw/${zoomStrength}:ih/${zoomStrength}`;
+          }
           break;
 
         case "shake":
-          // Very simple shake - slight crop offset
-          videoFilter = `crop=in_w-10:in_h-10:5:5`;
+          // Very simple shake - slight crop offset with timestamp
+          if (startSec > 0 || endSec > 0) {
+            videoFilter = `crop=in_w-10:in_h-10:5:5:enable='between(t,${startSec},${actualEnd})'`;
+          } else {
+            videoFilter = `crop=in_w-10:in_h-10:5:5`;
+          }
           break;
 
         case "blur":
           // Gaussian blur
           const blurAmount = Math.min(strength / 5, 10);
-          videoFilter = `gblur=sigma=${blurAmount}`;
+          // Apply blur only during the specified time range
+          if (startSec > 0 || endSec > 0) {
+            videoFilter = `gblur=sigma=${blurAmount}:enable='between(t,${startSec},${actualEnd})'`;
+          } else {
+            videoFilter = `gblur=sigma=${blurAmount}`;
+          }
           break;
 
         case "glitch":
           // Desaturate effect
-          videoFilter = `eq=saturation=0.5`;
+          if (startSec > 0 || endSec > 0) {
+            videoFilter = `eq=saturation=0.5:enable='between(t,${startSec},${actualEnd})'`;
+          } else {
+            videoFilter = `eq=saturation=0.5`;
+          }
           break;
 
         default:
