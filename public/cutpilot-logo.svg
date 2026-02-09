@@ -1,0 +1,28 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Film strip border -->
+  <rect x="20" y="30" width="160" height="140" rx="8" fill="#F59E0B" stroke="#D97706" stroke-width="3"/>
+  
+  <!-- Film holes (top) -->
+  <circle cx="35" cy="45" r="4" fill="#FFFFFF"/>
+  <circle cx="55" cy="45" r="4" fill="#FFFFFF"/>
+  <circle cx="145" cy="45" r="4" fill="#FFFFFF"/>
+  <circle cx="165" cy="45" r="4" fill="#FFFFFF"/>
+  
+  <!-- Film holes (bottom) -->
+  <circle cx="35" cy="155" r="4" fill="#FFFFFF"/>
+  <circle cx="55" cy="155" r="4" fill="#FFFFFF"/>
+  <circle cx="145" cy="155" r="4" fill="#FFFFFF"/>
+  <circle cx="165" cy="155" r="4" fill="#FFFFFF"/>
+  
+  <!-- Center screen area -->
+  <rect x="70" y="60" width="60" height="80" rx="4" fill="#1F2937"/>
+  
+  <!-- Play button triangle -->
+  <path d="M 90 85 L 90 115 L 115 100 Z" fill="#F59E0B"/>
+  
+  <!-- CP letters -->
+  <text x="100" y="35" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#D97706" text-anchor="middle">CP</text>
+  
+  <!-- CutPilot text below -->
+  <text x="100" y="190" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#78350F" text-anchor="middle">CutPilot</text>
+</svg>

@@ -1,0 +1,16 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Film strip -->
+  <rect x="4" y="6" width="24" height="20" rx="2" fill="#F59E0B"/>
+  
+  <!-- Film holes -->
+  <circle cx="6" cy="9" r="1" fill="#FFFFFF"/>
+  <circle cx="26" cy="9" r="1" fill="#FFFFFF"/>
+  <circle cx="6" cy="23" r="1" fill="#FFFFFF"/>
+  <circle cx="26" cy="23" r="1" fill="#FFFFFF"/>
+  
+  <!-- Center screen -->
+  <rect x="10" y="11" width="12" height="10" rx="1" fill="#1F2937"/>
+  
+  <!-- Play button -->
+  <path d="M 14 14 L 14 18 L 18 16 Z" fill="#F59E0B"/>
+</svg>
